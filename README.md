@@ -21,15 +21,16 @@ Before running the application, ensure you have the following installed:
 
 ### Setup Instructions
 Follow these steps to set up and run the backend locally:
-1. Clone the Repository
+
+- 1. Clone the Repository
 git clone https://github.com/PaninDmytro/blog-backend.git
 cd blog-backend
 
-2. Install Dependencies
+- 2. Install Dependencies
 Install the required dependencies using npm:
 npm install
 
-3. Configure Environment Variables
+- 3. Configure Environment Variables
 Create a .env file in the root of the project with the following variables:
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
@@ -38,24 +39,27 @@ DATABASE_PASSWORD=your_password
 DATABASE_NAME=blog
 
 Replace your_username, your_password, and blog with your PostgreSQL credentials and database name.
-4. Set Up PostgreSQL Database
+
+- 4. Set Up PostgreSQL Database
 Ensure PostgreSQL is running and create a database for the application:
 CREATE DATABASE blog;
 
 TypeORM will automatically synchronize the database schema based on the entity definitions when the application starts. Alternatively, you can use migrations for production environments.
-5. Run the Application
+
+- 5. Run the Application
 Start the development server:
 npm run start:dev
 
 The API will be available at http://localhost:3001.
-6. Build for Production
+
+- 6. Build for Production
 To create a production build:
 npm run build
 
 To start the production server:
 npm run start:prod
 
-7. Run Tests
+- 7. Run Tests
 Run unit tests:
 npm run test
 
@@ -65,7 +69,7 @@ npm run test:e2e
 Run tests with coverage:
 npm run test:cov
 
-8. Linting and Formatting
+- 8. Linting and Formatting
 Run the linter to check for code quality issues:
 npm run lint
 
@@ -97,25 +101,26 @@ dist/: Compiled output for production builds.
 
 ### Dependencies
 
-NestJS: Framework for building scalable server-side applications.
-TypeORM: ORM for PostgreSQL database interactions.
-pg: PostgreSQL driver for Node.js.
-class-validator & class-transformer: Request validation and transformation.
-Jest: Testing framework for unit and end-to-end tests.
-ESLint & Prettier: Code quality and formatting tools.
+- NestJS: Framework for building scalable server-side applications.
+- TypeORM: ORM for PostgreSQL database interactions.
+- pg: PostgreSQL driver for Node.js.
+- class-validator & class-transformer: Request validation and transformation.
+- Jest: Testing framework for unit and end-to-end tests.
+- ESLint & Prettier: Code quality and formatting tools.
 
 For a full list of dependencies, refer to package.json.
-API Endpoints
+
+### API Endpoints
 The API provides endpoints for managing posts and comments. Example endpoints (to be customized based on implementation):
 
-GET /posts: Retrieve a list of posts.
-POST /posts: Create a new post.
-GET /posts/:id: Retrieve a specific post.
-PUT /posts/:id: Update a post.
-DELETE /posts/:id: Delete a post.
-GET /comments: Retrieve comments for a post.
-POST /comments: Create a new comment.
-DELETE /comments/:id: Delete a comment.
+- GET /posts: Retrieve a list of posts.
+- POST /posts: Create a new post.
+- GET /posts/:id: Retrieve a specific post.
+- PUT /posts/:id: Update a post.
+- DELETE /posts/:id: Delete a post.
+- GET /comments: Retrieve comments for a post.
+- POST /comments: Create a new comment.
+- DELETE /comments/:id: Delete a comment.
 
 Refer to the application code or use a tool like Postman to explore all available endpoints.
 Contributing
