@@ -1,73 +1,124 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+### 🚀Blog Backend
+A backend API for a blog application built with NestJS and TypeORM. This project provides endpoints for managing blog posts and comments, with a PostgreSQL database for data persistence. The API supports CRUD operations and is designed to work with a frontend application.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### Features
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- CRUD Operations: Create, read, update, and delete blog posts and comments.
+- Database Integration: Uses PostgreSQL with TypeORM for data management.
+- Validation: Implements class-validator and class-transformer for request validation.
+- Configuration: Supports environment-based configuration with @nestjs/config.
+- Linting & Formatting: Enforces code quality with ESLint and Prettier.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Prerequisites
+Before running the application, ensure you have the following installed:
 
-## Installation
+- Node.js: Version 18 or higher
+- npm: Version 9 or higher
+- PostgreSQL: Version 13 or higher
+- Git: For cloning the repository
 
-```bash
-$ npm install
-```
+### Setup Instructions
+Follow these steps to set up and run the backend locally:
+1. Clone the Repository
+git clone https://github.com/PaninDmytro/blog-backend.git
+cd blog-backend
 
-## Running the app
+2. Install Dependencies
+Install the required dependencies using npm:
+npm install
 
-```bash
-# development
-$ npm run start
+3. Configure Environment Variables
+Create a .env file in the root of the project with the following variables:
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USERNAME=your_username
+DATABASE_PASSWORD=your_password
+DATABASE_NAME=blog
 
-# watch mode
-$ npm run start:dev
+Replace your_username, your_password, and blog with your PostgreSQL credentials and database name.
+4. Set Up PostgreSQL Database
+Ensure PostgreSQL is running and create a database for the application:
+CREATE DATABASE blog;
 
-# production mode
-$ npm run start:prod
-```
+TypeORM will automatically synchronize the database schema based on the entity definitions when the application starts. Alternatively, you can use migrations for production environments.
+5. Run the Application
+Start the development server:
+npm run start:dev
 
-## Test
+The API will be available at http://localhost:3001.
+6. Build for Production
+To create a production build:
+npm run build
 
-```bash
-# unit tests
-$ npm run test
+To start the production server:
+npm run start:prod
 
-# e2e tests
-$ npm run test:e2e
+7. Run Tests
+Run unit tests:
+npm run test
 
-# test coverage
-$ npm run test:cov
-```
+Run end-to-end tests:
+npm run test:e2e
 
-## Support
+Run tests with coverage:
+npm run test:cov
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+8. Linting and Formatting
+Run the linter to check for code quality issues:
+npm run lint
 
-## Stay in touch
+Format the code with Prettier:
+npm run format
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Assumptions
 
-## License
+- A PostgreSQL database is available and accessible with the provided credentials.
+- The frontend application is configured to communicate with the backend at http://localhost:3001.
+- The database schema is synchronized automatically by TypeORM. For production, consider using migrations.
+- The API is stateless and does not handle authentication (this can be added as needed).
 
-Nest is [MIT licensed](LICENSE).
+### Important Notes
+
+- Environment Variables: Ensure the .env file is correctly configured with valid PostgreSQL credentials. Missing or incorrect values will prevent the application from connecting to the database.
+- Port Configuration: The backend runs on port 3001. Ensure this port is free or modify the port in the main.ts file if needed.
+- Database Synchronization: TypeORM’s synchronize: true is enabled by default for development. Disable it in production to avoid unintended schema changes.
+
+### Project Structure
+
+- src/: Source code for the application.
+- entities/: TypeORM entity definitions for database models.
+- modules/: NestJS modules for posts and comments.
+- main.ts: Application entry point.
+
+dist/: Compiled output for production builds.
+.env: Environment variables (not tracked in version control).
+
+### Dependencies
+
+NestJS: Framework for building scalable server-side applications.
+TypeORM: ORM for PostgreSQL database interactions.
+pg: PostgreSQL driver for Node.js.
+class-validator & class-transformer: Request validation and transformation.
+Jest: Testing framework for unit and end-to-end tests.
+ESLint & Prettier: Code quality and formatting tools.
+
+For a full list of dependencies, refer to package.json.
+API Endpoints
+The API provides endpoints for managing posts and comments. Example endpoints (to be customized based on implementation):
+
+GET /posts: Retrieve a list of posts.
+POST /posts: Create a new post.
+GET /posts/:id: Retrieve a specific post.
+PUT /posts/:id: Update a post.
+DELETE /posts/:id: Delete a post.
+GET /comments: Retrieve comments for a post.
+POST /comments: Create a new comment.
+DELETE /comments/:id: Delete a comment.
+
+Refer to the application code or use a tool like Postman to explore all available endpoints.
+Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+License
+This project is unlicensed. All rights are reserved.
